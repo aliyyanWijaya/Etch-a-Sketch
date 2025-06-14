@@ -1,11 +1,14 @@
 .grid-div {
-    border: 2px solid black;
-    height: 10px;
-    width: 10px;
+    border: 1px solid black;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    flex-direction: row;
 }
 
 .container {
     border: 2px solid black;
-    height: 160px;
-    width: 160px;
+    width: 512px;
+    display: flex;
+    flex-wrap: wrap;
 }
