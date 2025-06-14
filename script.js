@@ -15,13 +15,17 @@ function createGrid(grid) {
 
 createGrid(16);
 
-const randNum = Math.floor(Math.random() * 256);
-const randColor = `rgb(${randNum}, ${randNum}, ${randNum})`;
-console.log(randColor);
+function getRandomRgbColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
 const gridDiv = document.querySelectorAll(".grid-div");
 
 gridDiv.forEach(div => {
     div.addEventListener("mouseover", () => {
-        div.style.backgroundColor = `rgb(${randNum}, ${randNum}, ${randNum})`
+        div.style.backgroundColor = getRandomRgbColor();
     })
 })
