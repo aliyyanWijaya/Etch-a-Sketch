@@ -6,6 +6,9 @@ const mainBody = document.querySelector("body");
 mainBody.append(containerDiv);
 
 function createGrid(grid) {
+    containerDiv.style.gridTemplateColumns = `repeat(${grid}, 1fr)`;
+    containerDiv.style.gridTemplateRows = `repeat(${grid}, 1fr)`;
+    
     for (let i = 0; i < grid ** 2; i++) {
         const gridDiv = document.createElement("div");
         gridDiv.classList.add("grid-div");
@@ -34,6 +37,7 @@ let gridInputValue = document.querySelector(".square");
 const gridInputContainer = document.querySelector(".grid-input-container")
 
 const changeGridButton = document.querySelector(".change-grid-button");
+
 changeGridButton.addEventListener("click", () => {
     let newGridValue = gridInputValue.value;
     if (isNaN(newGridValue) || newGridValue < 1 || newGridValue > 100) {
@@ -48,6 +52,8 @@ changeGridButton.addEventListener("click", () => {
             removeText.remove();
         }, 1000);
     } else {
+        const currentGrid = document.querySelector(".grid-div");
+        containerDiv.innerHTML = "";
         createGrid(newGridValue);
     }
 })
