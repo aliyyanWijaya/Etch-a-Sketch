@@ -30,17 +30,24 @@ gridDiv.forEach(div => {
     })
 })
 
-const gridInputValue = document.querySelector(".square");
+let gridInputValue = document.querySelector(".square");
 const gridInputContainer = document.querySelector(".grid-input-container")
+
+
 
 const changeGridButton = document.querySelector(".change-grid-button");
 changeGridButton.addEventListener("click", () => {
-    const newGridValue = gridInputValue.value;
+    let newGridValue = gridInputValue.value;
     if (isNaN(newGridValue) || newGridValue < 1 || newGridValue > 100) {
         const alertText = document.createElement("p");
         alertText.classList.add("alert-text");
         alertText.textContent = "Please input only a number between 1 - 100";
         gridInputContainer.append(alertText);
-
-    }
+        gridInputValue.value = "";
+        gridInputValue.focus();
+        const removeText = document.querySelector(".alert-text");
+        setTimeout(() => {
+            removeText.remove();
+        }, 1000);
+        }
 })
