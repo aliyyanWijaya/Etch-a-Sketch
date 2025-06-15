@@ -12,3 +12,7 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.alert-text{
+    color: red;
+}
