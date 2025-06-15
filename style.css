@@ -1,16 +1,17 @@
 .grid-div {
     border: 1px solid black;
-    height: 30px;
-    width: 30px;
-    display: flex;
+    /* height: 30px;
+    width: 30px; */
+    /* display: flex;
     flex-direction: row;
+    flex: 1; */
 }
 
 .container {
     border: 2px solid black;
-    width: 512px;
-    display: flex;
-    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+    display: grid;
 }
 
 .alert-text{
