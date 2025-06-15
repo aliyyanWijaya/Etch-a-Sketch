@@ -33,8 +33,6 @@ gridDiv.forEach(div => {
 let gridInputValue = document.querySelector(".square");
 const gridInputContainer = document.querySelector(".grid-input-container")
 
-
-
 const changeGridButton = document.querySelector(".change-grid-button");
 changeGridButton.addEventListener("click", () => {
     let newGridValue = gridInputValue.value;
@@ -49,5 +47,7 @@ changeGridButton.addEventListener("click", () => {
         setTimeout(() => {
             removeText.remove();
         }, 1000);
-        }
+    } else {
+        createGrid(newGridValue);
+    }
 })
