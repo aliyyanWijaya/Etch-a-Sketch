@@ -8,30 +8,32 @@ mainBody.append(containerDiv);
 function createGrid(grid) {
     containerDiv.style.gridTemplateColumns = `repeat(${grid}, 1fr)`;
     containerDiv.style.gridTemplateRows = `repeat(${grid}, 1fr)`;
-    
+
     for (let i = 0; i < grid ** 2; i++) {
         const gridDiv = document.createElement("div");
         gridDiv.classList.add("grid-div");
         containerDiv.append(gridDiv);
     }
+
+    function getRandomRgbColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    const gridDiv = document.querySelectorAll(".grid-div");
+
+    gridDiv.forEach(div => {
+        div.addEventListener("mouseover", () => {
+            div.style.backgroundColor = getRandomRgbColor();
+        })
+    })
 }
 
 createGrid(16);
 
-function getRandomRgbColor() {
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
-  return `rgb(${r}, ${g}, ${b})`;
-}
 
-const gridDiv = document.querySelectorAll(".grid-div");
-
-gridDiv.forEach(div => {
-    div.addEventListener("mouseover", () => {
-        div.style.backgroundColor = getRandomRgbColor();
-    })
-})
 
 let gridInputValue = document.querySelector(".square");
 const gridInputContainer = document.querySelector(".grid-input-container")
@@ -50,7 +52,7 @@ changeGridButton.addEventListener("click", () => {
         const removeText = document.querySelector(".alert-text");
         setTimeout(() => {
             removeText.remove();
-        }, 1000);
+        }, 3000);
     } else {
         const currentGrid = document.querySelector(".grid-div");
         containerDiv.innerHTML = "";
